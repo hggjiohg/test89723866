@@ -2,7 +2,7 @@ const Discord = require('discord.js');//تعريف بكج
 const client = new Discord.Client();// تعريف الكلينت
 const ms = require('ms');
 const pms = require('pretty-ms');
-
+const prefix = "&"
 
 
 
@@ -13,18 +13,44 @@ const pms = require('pretty-ms');
 var ServerID = "437918451869286403"; 
 var ChannelID = "500755558689800202";//
 
-var ChannelIID = "500756813340475423";//kايدي روم ثاني للسبام
+var ChannelIID = "500756813340475423";
 
+ client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+ 
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+ 
+let args = message.content.split(" ").slice(1);
+if(!args) return message.channel.send('${prefix}say <words>'); 
+ 
+if (command == "say") {
+if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply("**You Can't Use This Command**");
+ 
+message.channel.send(args.join("  "))
+    message.delete();
+  }
+});
  
 
-//البكجات
-//npm i discord.js
-//npm install opusscript
-//npm install node-opus
-//npm install ffmpeg-binaries
-//npm i ms : For Good Quality
-//npm i pretty-ms : For Good Quality
-
+    client.on('message',async message => {
+    if(message.content.startsWith(prefix + "off")) {
+       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':no_entry: You Need Adminstrator! :no_entry:');
+        message.channel.send('**Stopping.**').then(msg => {
+            setTimeout(() => {
+               msg.edit('**Stoppping...**');
+            },1000);
+            setTimeout(() => {
+               msg.edit('**Done!**');
+            },2000);
+        });
+        setTimeout(() => {
+            client.destroy();
+client.login(process.env.BOT_TOKEN);
+        },3000);
+    }
+});
 
 
 client.on('Warn', console.warn);//
@@ -38,7 +64,7 @@ client.on('Reconnecting', () => console.log('Reconnecting...'));//If The Bot Des
 function timerFunc() {
   
   
-    client.on('message', msg => {//Rie
+    client.on('message', msg => {//
         client.guilds.get(ServerID).channels.get(ChannelID).send(Math.random().toString(36).substring(7)) // 
 
 
@@ -70,8 +96,7 @@ client.on('ready', () => console.log('By Rie'));//كلام يظهر فل كون�
 
 
 
-//ProBot Miner V3 
-//Better Quality & Fast Mining & Better Minning = More Credits
+
 
 
 client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
