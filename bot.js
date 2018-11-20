@@ -80,6 +80,9 @@ function timerFunc() {
     });
 }
 
+client.on('ready', () => {
+  client.channels.find(ch => ch.id === "437918452351500298" && ch.type === 'voice').join();//اكتب اي دي روم صوت هنا
+});//By Rie
 
 
 
