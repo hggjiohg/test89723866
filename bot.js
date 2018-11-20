@@ -4,7 +4,9 @@ const ms = require('ms');
 const pms = require('pretty-ms');
 const prefix = "&"
 
-
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
 
 
