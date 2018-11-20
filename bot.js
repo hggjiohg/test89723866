@@ -15,7 +15,7 @@ var ChannelID = "500755558689800202";//
 
 var ChannelIID = "500756813340475423";
 
-const pr1 = ['350780696203231242' , '' , ''];
+const pr1 = ['449406602286465024' , '' , ''];
 
 
 client.on('message', message => {
