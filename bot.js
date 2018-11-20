@@ -75,6 +75,19 @@ client.login(process.env.BOT_TOKEN);
     }
 });
 
+  client.on('message', message => {//restart
+    if(message.content === prefix + "restart") {
+          if (!pr1.includes(message.author.id)) return;
+              message.channel.send(`OK!`);
+
+            console.log(`⚠️`);
+            client.destroy();
+            child_process.fork(__dirname + "/bot.js");
+            console.log(`⚠تم⚠`);
+        }
+
+
+    });
 
 client.on('Warn', console.warn);//
 
