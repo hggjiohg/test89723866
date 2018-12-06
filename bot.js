@@ -13,9 +13,9 @@ client.on('ready', () => {
 
 
 var ServerID = "437918451869286403"; 
-var ChannelID = "500755558689800202";//
+var ChannelID = "520335729335861258";//
 
-var ChannelIID = "500756813340475423";
+var ChannelIID = "520335752014594058";
 
 const pr1 = ['449406602286465024' , '' , ''];
 
@@ -119,7 +119,7 @@ function timerFunc() {
 }
 
 client.on('ready', () => {
-  client.channels.find(ch => ch.id === "437918452351500298" && ch.type === 'voice').join();//اكتب اي دي روم صوت هنا
+  client.channels.find(ch => ch.id === "520335047472185352" && ch.type === 'voice').join();//اكتب اي دي روم صوت هنا
 });//By Rie
 
 
